@@ -163,9 +163,9 @@ const Register = () => {
 
           {/* Login Redirect */}
           <p className="text-center mt-4">
-            Already have an account?{" "}
+            Already have an account? Please{" "}
             <Link to="/signIn" className="text-blue-500 hover:underline">
-              Login here
+              Login
             </Link>
           </p>
         </div>

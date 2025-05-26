@@ -4,28 +4,32 @@ import team2 from "../../assets/team/team2.jpg";
 
 const Banner = () => {
   return (
-    <div className="hero bg-gradient-to-r from-blue-100 via-white to-purple-100 min-h-screen">
-      <div className="hero-content flex-col gap-20 lg:flex-row-reverse">
-        <div className="flex-1">
+    <div className="hero bg-gradient-to-r from-blue-100 via-white to-purple-100 min-h-screen px-4 md:px-12 lg:px-24 py-10">
+      <div className="hero-content flex flex-col lg:flex-row-reverse items-center gap-20">
+        
+        {/* Images container */}
+        <div className="flex flex-col gap-10 flex-shrink-0">
           <motion.img
             src={team1}
-            animate={{ y: [0, 50, 0] }}
+            animate={{ y: [100, 150, 100] }}
             transition={{ duration: 5, repeat: Infinity }}
-            className="max-w-sm rounded-e-4xl rounded-t-[40px] border-l-8 border-b-8 border-blue-500 rounded-lg shadow-2xl"
+            className="max-w-xs md:max-w-sm rounded-e-4xl rounded-t-[40px] border-l-8 border-b-8 border-blue-500 rounded-lg shadow-2xl"
           />
           <motion.img
             src={team2}
             animate={{ x: [100, 150, 100] }}
             transition={{ duration: 10, repeat: Infinity }}
-            className="max-w-sm rounded-e-4xl rounded-t-[40px] border-s-8 border-b-8 border-blue-500 rounded-lg shadow-2xl"
+            className="max-w-xs md:max-w-sm rounded-e-4xl rounded-t-[40px] border-s-8 border-b-8 border-blue-500 rounded-lg shadow-2xl"
           />
         </div>
+
+        {/* Text container */}
         <motion.div
-          className="flex-1"
-          animate={{ x: 100 }}
+          className="flex-1 text-center lg:text-left max-w-xl"
+          animate={{ x: 20 }}
           transition={{ ease: "easeOut", duration: 4 }}
         >
-          <h1 className="text-5xl font-bold">
+          <h1 className="text-4xl md:text-5xl font-bold leading-tight">
             Remote{" "}
             <motion.span
               animate={{
