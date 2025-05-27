@@ -5,7 +5,7 @@ import team2 from "../../assets/team/team2.jpg";
 const Banner = () => {
   return (
     <div className="hero bg-gradient-to-r from-blue-100 via-white to-purple-100 min-h-screen px-4 md:px-12 lg:px-24 py-10">
-      <div className="hero-content flex flex-col lg:flex-row-reverse items-center gap-20">
+      <div className="hero-content flex flex-col lg:flex-row-reverse items-center gap-4 md:gap-20">
         
         {/* Images container */}
         <div className="flex flex-col gap-10 flex-shrink-0">
