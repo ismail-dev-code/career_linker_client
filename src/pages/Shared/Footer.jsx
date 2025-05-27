@@ -20,10 +20,11 @@ const policyLinks = [
 ];
 
 const socialLinks = [
-  { icon: <FaYoutube size={25} />, title: "YouTube", href: "#" },
-  { icon: <FaTwitter size={25} />, title: "Twitter", href: "#" },
-  { icon: <FaGithub size={25} />, title: "GitHub", href: "#" },
+  { icon: <FaYoutube size={25} />, title: "YouTube", href: "https://github.com/ismail-dev-code", target: "_blank" },
+  { icon: <FaTwitter size={25} />, title: "Twitter", href: "https://github.com/ismail-dev-code", target: "_blank" },
+  { icon: <FaGithub size={25} />, title: "GitHub", href: "https://github.com/ismail-dev-code", target: "_blank" },
 ];
+
 
 const Footer = () => {
   return (
