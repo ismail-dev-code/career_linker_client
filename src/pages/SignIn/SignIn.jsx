@@ -2,20 +2,21 @@ import React, { useContext } from "react";
 import { motion } from "framer-motion";
 import Lottie from "lottie-react";
 import Swal from "sweetalert2";
-import lottiSignIn from "../../assets/lotties/signin.json"; 
-// import lottiLogIn from "../../assets/lotties/SignIn.json"; 
+import lottiSignIn from "../../assets/lotties/signin.json";
 
 import { AuthContext } from "../../context/AuthContext/AuthContext";
 import SocialLogIn from "../Shared/SocialLogIn";
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 
 const SignIn = () => {
   const { signIn, resetPassword } = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state || "/";
 
   const handleSignIn = (e) => {
     e.preventDefault();
     const form = e.target;
-    const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
 
@@ -29,6 +30,7 @@ const SignIn = () => {
           title: "Sign In Successful",
           text: `Welcome back, ${name || "User"}!`,
         });
+        navigate(from);
       })
       .catch((error) => {
         Swal.fire({
@@ -52,7 +54,11 @@ const SignIn = () => {
     if (email) {
       resetPassword(email)
         .then(() => {
-          Swal.fire("Sent!", "Password reset link has been sent to your email.", "success");
+          Swal.fire(
+            "Sent!",
+            "Password reset link has been sent to your email.",
+            "success"
+          );
         })
         .catch((error) => {
           Swal.fire("Error!", error.message, "error");
@@ -63,7 +69,6 @@ const SignIn = () => {
   return (
     <div className="hero bg-base-200 min-h-screen px-4 md:px-8">
       <div className="hero-content flex flex-col lg:flex-row items-center justify-center gap-10 lg:gap-20">
-        
         {/* Left animation */}
         <motion.div
           className="w-1/4 hidden lg:block"
@@ -71,7 +76,7 @@ const SignIn = () => {
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 1 }}
         >
-          <Lottie animationData={lottiLogIn} loop={true} />
+          <Lottie animationData={lottiSignIn} loop={true} />
         </motion.div>
 
         {/* Centered Form */}
@@ -80,14 +85,6 @@ const SignIn = () => {
             <h1 className="text-3xl font-bold text-center">Sign In now!</h1>
             <form onSubmit={handleSignIn}>
               <fieldset className="fieldset">
-                <label className="label">Name</label>
-                <input
-                  type="text"
-                  name="name"
-                  className="input input-bordered w-full"
-                  placeholder="Your name"
-                />
-
                 <label className="label mt-4">Email</label>
                 <input
                   type="email"
@@ -122,7 +119,7 @@ const SignIn = () => {
               </fieldset>
             </form>
 
-            <SocialLogIn />
+            <SocialLogIn form={from} />
 
             <p className="text-center mt-4 text-sm">
               New to this website? Please{" "}
