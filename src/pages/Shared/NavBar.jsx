@@ -2,7 +2,12 @@ import React, { useContext } from "react";
 import { Link, NavLink, useNavigate } from "react-router";
 import { AuthContext } from "../../context/AuthContext/AuthContext";
 import Swal from "sweetalert2";
-
+import { IoHomeOutline } from "react-icons/io5";
+import { RiFindReplaceLine } from "react-icons/ri";
+import { FaUsersViewfinder } from "react-icons/fa6";
+import { LiaBlogSolid } from "react-icons/lia";
+import { TbBrandSuperhuman } from "react-icons/tb";
+import { SlEnvolopeLetter } from "react-icons/sl";
 const NavBar = () => {
   const { user, logOut } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -34,39 +39,47 @@ const NavBar = () => {
     <>
       <li>
         <NavLink className="text-black mr-4" to="/">
+          <IoHomeOutline />
           Home
         </NavLink>
       </li>
       <li>
         <NavLink className="text-black mr-4" to="/findJob">
+          <RiFindReplaceLine />
           Find a Job
         </NavLink>
       </li>
       <li>
         <NavLink className="text-black mr-4" to="/recruiters">
-         Recruiters
+          <TbBrandSuperhuman />
+          Recruiters
         </NavLink>
       </li>
       <li>
         <NavLink className="text-black mr-4" to="/candidates">
-         Candidates
+          <FaUsersViewfinder />
+          Candidates
         </NavLink>
       </li>
       <li>
         <NavLink className="text-black mr-4" to="/blog">
-         Blog
+          <LiaBlogSolid />
+          Blog
         </NavLink>
       </li>
       {user && (
         <li>
-          <NavLink to="/myApplication">My Application</NavLink>
+          <NavLink to="/myApplication" className="text-black">
+            <SlEnvolopeLetter />
+            My Application
+          </NavLink>
         </li>
       )}
     </>
   );
 
   return (
-    <div className="navbar sticky top-0 z-50 bg-gradient-to-r from-blue-300 via-purple-200 to-pink-100 text-white">
+    <div className="navbar px-4 md:px-12 sticky top-0 z-50 bg-gradient-to-r from-blue-300 via-purple-200 to-pink-100 text-white">
       <div className="navbar-start">
         <div className="dropdown">
           <div
@@ -96,7 +109,12 @@ const NavBar = () => {
             {links}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl text-white">CareerLinker</a>
+        <Link
+          to={"/"}
+          className="text-2xl font-bold bg-gradient-to-r from-purple-500 via-pink-400 to-violet-400 bg-clip-text text-transparent hover:from-purple-600 hover:via-pink-500 hover:to-violet-500"
+        >
+          CareerLinker
+        </Link>
       </div>
 
       <div className="navbar-center hidden lg:flex">
@@ -115,7 +133,7 @@ const NavBar = () => {
           <>
             <Link
               to="/signIn"
-              className="text-sm text-white bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-800 px-3 py-1 rounded transition"
+              className="text-sm md:block hidden text-white bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-800 px-3 py-1 rounded transition"
             >
               SignIn
             </Link>

@@ -28,7 +28,7 @@ const Banner = () => {
         <Motion.div
           className="flex-1 text-center lg:text-left max-w-xl"
           animate={{ x: 10 }}
-          transition={{ ease: "easeOut", duration: 4 }}
+          transition={{ ease: "easeOut", duration: 2 }}
         >
           <h1 className="text-4xl md:text-5xl font-bold leading-tight">
             Remote{" "}
