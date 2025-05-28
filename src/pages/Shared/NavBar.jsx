@@ -33,7 +33,29 @@ const NavBar = () => {
   const links = (
     <>
       <li>
-        <NavLink className="text-black" to="/">Home</NavLink>
+        <NavLink className="text-black mr-4" to="/">
+          Home
+        </NavLink>
+      </li>
+      <li>
+        <NavLink className="text-black mr-4" to="/findJob">
+          Find a Job
+        </NavLink>
+      </li>
+      <li>
+        <NavLink className="text-black mr-4" to="/recruiters">
+         Recruiters
+        </NavLink>
+      </li>
+      <li>
+        <NavLink className="text-black mr-4" to="/candidates">
+         Candidates
+        </NavLink>
+      </li>
+      <li>
+        <NavLink className="text-black mr-4" to="/blog">
+         Blog
+        </NavLink>
       </li>
       {user && (
         <li>
@@ -47,7 +69,11 @@ const NavBar = () => {
     <div className="navbar sticky top-0 z-50 bg-gradient-to-r from-blue-300 via-purple-200 to-pink-100 text-white">
       <div className="navbar-start">
         <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden text-white">
+          <div
+            tabIndex={0}
+            role="button"
+            className="btn btn-ghost lg:hidden text-white"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -81,24 +107,24 @@ const NavBar = () => {
         {user ? (
           <button
             onClick={handleLogout}
-            className="text-sm bg-red-500 hover:bg-red-600 px-3 py-1 rounded transition"
+            className="text-sm text-white bg-gradient-to-r from-red-500 to-red-700 hover:from-red-600 hover:to-red-800 px-3 py-1 rounded transition"
           >
             Sign Out
           </button>
         ) : (
           <>
             <Link
-                to="/signIn"
-                className="text-sm bg-blue-500 hover:bg-blue-600 px-3 py-1 rounded transition"
-              >
-                SignIn
-              </Link>
+              to="/signIn"
+              className="text-sm text-white bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-800 px-3 py-1 rounded transition"
+            >
+              SignIn
+            </Link>
             <Link
-                to="/register"
-                className="text-sm bg-green-500 hover:bg-green-600 px-3 py-1 rounded transition"
-              >
-                Register
-              </Link>
+              to="/register"
+              className="text-sm text-white bg-gradient-to-r from-green-500 to-green-700 hover:from-green-600 hover:to-green-800 px-3 py-1 rounded transition"
+            >
+              Register
+            </Link>
           </>
         )}
       </div>

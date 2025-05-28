@@ -8,6 +8,10 @@ import Loading from "../pages/Shared/Loading";
 import PrivateRoute from "../routes/PrivateRoute";
 import JobApply from "../pages/JobApply/JobApply";
 import MyApplications from "../pages/MyApplications/MyApplications";
+import FindJob from "../components/FindJob";
+import Candidates from "../components/Candidates";
+import Recruiters from "../components/Recruiters";
+import Blog from "../components/Blog";
 
 const router = createBrowserRouter([
   {
@@ -48,6 +52,22 @@ const router = createBrowserRouter([
       {
         path: "/signIn",
         element: <SignIn></SignIn>,
+      },
+      {
+        path: "/findJob",
+        element: <FindJob></FindJob>,
+      },
+      {
+        path: "/candidates",
+        element: <Candidates />,
+      },
+      {
+        path: "/recruiters",
+        element: <Recruiters />,
+      },
+      {
+        path: "/blog",
+        element: <Blog />,
       },
     ],
   },
