@@ -67,6 +67,12 @@ const NavBar = () => {
           Blog
         </NavLink>
       </li>
+      <li>
+        <NavLink className="text-black mr-4" to="/liveChat">
+          <LiaBlogSolid />
+          Live Chat
+        </NavLink>
+      </li>
       {user && (
         <li>
           <NavLink to="/myApplication" className="text-black">

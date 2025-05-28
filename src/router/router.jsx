@@ -12,6 +12,7 @@ import FindJob from "../components/FindJob";
 import Candidates from "../components/Candidates";
 import Recruiters from "../components/Recruiters";
 import Blog from "../components/Blog";
+import LiveChat from "../components/LiveChat";
 
 const router = createBrowserRouter([
   {
@@ -68,6 +69,10 @@ const router = createBrowserRouter([
       {
         path: "/blog",
         element: <Blog />,
+      },
+      {
+        path: "/liveChat",
+        element: <LiveChat />,
       },
     ],
   },
