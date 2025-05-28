@@ -1,2 +1,7 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+a.active{
+    @apply text-violet-400
+    border-b-2
+}

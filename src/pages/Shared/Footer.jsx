@@ -43,7 +43,7 @@ const socialLinks = [
 const contactInfo = {
   email: "support@careerlinker.com",
   phone: "+88 (018) 567-890",
-  address: "172 Career St, Dhaka City, BD",
+  address: "172 Career St, Noakhali City, Bangladesh",
 };
 
 const Footer = () => {

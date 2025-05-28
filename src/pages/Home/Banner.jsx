@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
 import team1 from "../../assets/team/team.jpg";
 import team2 from "../../assets/team/team2.jpg";
 
@@ -10,13 +10,13 @@ const Banner = () => {
         {/* Images container */}
        <div className="md:block hidden">
          <div className="flex flex-col gap-5 flex-shrink-0">
-          <motion.img
+          <Motion.img
             src={team1}
             animate={{ y: [100, 150, 100] }}
             transition={{ duration: 5, repeat: Infinity }}
             className="max-w-xs md:max-w-sm rounded-e-4xl rounded-t-[40px] border-l-8 border-b-8 border-blue-500 rounded-lg shadow-2xl"
           />
-          <motion.img
+          <Motion.img
             src={team2}
             animate={{ x: [80, 50, 80] }}
             transition={{ duration: 5, repeat: Infinity }}
@@ -26,14 +26,14 @@ const Banner = () => {
        </div>
 
         {/* Text container */}
-        <motion.div
+        <Motion.div
           className="flex-1 text-center lg:text-left max-w-xl"
-          animate={{ x: 20 }}
+          animate={{ x: 10 }}
           transition={{ ease: "easeOut", duration: 4 }}
         >
           <h1 className="text-4xl md:text-5xl font-bold leading-tight">
             Remote{" "}
-            <motion.span
+            <Motion.span
               animate={{
                 color: ["#adff33", "#33ff47", "#b533ff", "#ffd333", "#adff33"],
               }}
@@ -44,14 +44,14 @@ const Banner = () => {
               }}
             >
               Jobs
-            </motion.span>{" "}
+            </Motion.span>{" "}
             for you!
           </h1>
           <p className="py-6 text-base md:text-lg text-gray-600">
             Discover top remote opportunities from anywhere in the world. Whether you're a developer, designer, or marketer — find flexible jobs that fit your lifestyle and let you grow your career without boundaries.
           </p>
           <button className="btn btn-primary">Get Started</button>
-        </motion.div>
+        </Motion.div>
       </div>
     </div>
   );

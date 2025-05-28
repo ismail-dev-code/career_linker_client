@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { NavLink, useNavigate } from "react-router";
+import { Link, NavLink, useNavigate } from "react-router";
 import { AuthContext } from "../../context/AuthContext/AuthContext";
 import Swal from "sweetalert2";
 
@@ -33,23 +33,21 @@ const NavBar = () => {
   const links = (
     <>
       <li>
-        <NavLink to="/">Home</NavLink>
+        <NavLink className="text-black" to="/">Home</NavLink>
       </li>
       {user && (
-        <>
-          <li>
-            <NavLink to="/myApplication">My Application</NavLink>
-          </li>
-        </>
+        <li>
+          <NavLink to="/myApplication">My Application</NavLink>
+        </li>
       )}
     </>
   );
 
   return (
-    <div className="navbar bg-base-100 shadow-sm">
+    <div className="navbar sticky top-0 z-50 bg-gradient-to-r from-blue-300 via-purple-200 to-pink-100 text-white">
       <div className="navbar-start">
         <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden text-white">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -67,31 +65,40 @@ const NavBar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+            className="menu menu-sm dropdown-content bg-base-100 text-black rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
             {links}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">CareerLinker</a>
+        <a className="btn btn-ghost text-xl text-white">CareerLinker</a>
       </div>
 
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
 
-      <div className="navbar-end">
+      <div className="navbar-end space-x-2">
         {user ? (
-          <button onClick={handleLogout} className="btn">
+          <button
+            onClick={handleLogout}
+            className="text-sm bg-red-500 hover:bg-red-600 px-3 py-1 rounded transition"
+          >
             Sign Out
           </button>
         ) : (
           <>
-            <NavLink className="btn" to="/signIn">
-              SignIn
-            </NavLink>
-            <NavLink className="btn" to="/register">
-              Register
-            </NavLink>
+            <Link
+                to="/signIn"
+                className="text-sm bg-blue-500 hover:bg-blue-600 px-3 py-1 rounded transition"
+              >
+                SignIn
+              </Link>
+            <Link
+                to="/register"
+                className="text-sm bg-green-500 hover:bg-green-600 px-3 py-1 rounded transition"
+              >
+                Register
+              </Link>
           </>
         )}
       </div>

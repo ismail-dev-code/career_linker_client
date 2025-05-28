@@ -49,13 +49,17 @@ const JobCard = ({ job }) => {
           {location}
         </p>
         <p className="flex items-center gap-1">
-          Salary: {salaryRange.min} - {salaryRange.max} <FaBangladeshiTakaSign />
+          Salary: {salaryRange.min} - {salaryRange.max}{" "}
+          <FaBangladeshiTakaSign />
         </p>
-        <p className="text-sm mt-2">{description}</p>
-
-        <div className={`badge text-white ${isDeadlinePassed ? "bg-red-600" : "bg-green-600"}`}>
+        <div
+          className={`badge text-white ${
+            isDeadlinePassed ? "bg-red-600" : "bg-green-600"
+          }`}
+        >
           {displayStatus}
         </div>
+        <p className="text-sm mt-2">{description}</p>
 
         <div className="card-actions mt-4 text-nowrap flex flex-wrap gap-2">
           {requirements.map((skill, index) => (
