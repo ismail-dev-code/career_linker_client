@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import { Link } from "react-router";
 import SocialLogIn from "../Shared/SocialLogIn";
-
+import { motion as Motion } from "framer-motion";
 const Register = () => {
   const { createUser } = useContext(AuthContext);
 
@@ -77,7 +77,7 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen bg-base-200 flex items-center justify-center p-4">
+    <div className="min-h-screen py-12 bg-base-200 flex items-center justify-center p-4">
       <div className="w-full max-w-7xl flex flex-col lg:flex-row items-center justify-between gap-6">
         {/* Left Animation (Reversed) */}
         <div className="w-full md:w-1/3 hidden lg:flex justify-center">
@@ -87,7 +87,13 @@ const Register = () => {
         </div>
 
         {/* Form */}
-        <div className="w-full md:w-2/3 lg:w-1/3 bg-base-100 shadow-xl rounded-xl p-6 md:p-10">
+
+        <Motion.div
+          className="w-full md:w-8/12 lg:w-4/12 bg-base-100 shadow-xl rounded-xl p-6 md:p-10"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 2 }}
+        >
           <h1 className="text-3xl md:text-4xl font-bold mb-6 text-center">
             Register Now
           </h1>
@@ -159,16 +165,15 @@ const Register = () => {
             </div>
           </form>
 
-          <SocialLogIn></SocialLogIn>
+          <SocialLogIn />
 
-          {/* Login Redirect */}
           <p className="text-center mt-4">
             Already have an account? Please{" "}
             <Link to="/signIn" className="text-blue-500 hover:underline">
               Login
             </Link>
           </p>
-        </div>
+        </Motion.div>
 
         {/* Right Animation */}
         <div className="w-full md:w-1/3 hidden lg:flex justify-center">

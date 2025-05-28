@@ -70,7 +70,7 @@ const JobCard = ({ job }) => {
         </div>
 
         <div className="card-actions justify-end mt-4">
-          <Link to={`/jobs/${_id}`} className="btn btn-primary">
+          <Link to={`/jobs/${_id}`} className="btn text-white bg-blue-500 hover:bg-blue-600">
             See Details
           </Link>
         </div>
