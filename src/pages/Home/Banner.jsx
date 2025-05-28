@@ -8,7 +8,8 @@ const Banner = () => {
       <div className="hero-content flex flex-col lg:flex-row-reverse items-center gap-4 md:gap-20">
         
         {/* Images container */}
-        <div className="flex flex-col gap-10 flex-shrink-0">
+       <div className="md:block hidden">
+         <div className="flex flex-col gap-5 flex-shrink-0">
           <motion.img
             src={team1}
             animate={{ y: [100, 150, 100] }}
@@ -17,11 +18,12 @@ const Banner = () => {
           />
           <motion.img
             src={team2}
-            animate={{ x: [100, 150, 100] }}
-            transition={{ duration: 10, repeat: Infinity }}
+            animate={{ x: [80, 50, 80] }}
+            transition={{ duration: 5, repeat: Infinity }}
             className="max-w-xs md:max-w-sm rounded-e-4xl rounded-t-[40px] border-s-8 border-b-8 border-blue-500 rounded-lg shadow-2xl"
           />
         </div>
+       </div>
 
         {/* Text container */}
         <motion.div
