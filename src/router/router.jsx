@@ -13,6 +13,7 @@ import Candidates from "../components/Candidates";
 import Recruiters from "../components/Recruiters";
 import Blog from "../components/Blog";
 import LiveChat from "../components/LiveChat";
+import AddJob from "../pages/addJob/AddJob";
 
 const router = createBrowserRouter([
   {
@@ -47,6 +48,14 @@ const router = createBrowserRouter([
         ),
       },
       {
+        path: "/addJob",
+        element: (
+          <PrivateRoute>
+            <AddJob />
+          </PrivateRoute>
+        ),
+      },
+      {
         path: "/register",
         Component: Register,
       },
@@ -72,7 +81,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/liveChat",
-        element: <LiveChat />,
+        element: (
+          <PrivateRoute>
+            <LiveChat />
+          </PrivateRoute>
+        ),
       },
     ],
   },

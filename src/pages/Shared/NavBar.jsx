@@ -1,16 +1,31 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react"; // added useEffect, useRef
 import { Link, NavLink, useNavigate } from "react-router";
 import { AuthContext } from "../../context/AuthContext/AuthContext";
 import Swal from "sweetalert2";
-import { IoHomeOutline } from "react-icons/io5";
+import { IoBagAddOutline, IoBookOutline, IoHomeOutline } from "react-icons/io5";
 import { RiFindReplaceLine } from "react-icons/ri";
 import { FaUsersViewfinder } from "react-icons/fa6";
 import { LiaBlogSolid } from "react-icons/lia";
 import { TbBrandSuperhuman } from "react-icons/tb";
 import { SlEnvolopeLetter } from "react-icons/sl";
+import { MdAddTask } from "react-icons/md";
+
 const NavBar = () => {
   const { user, logOut } = useContext(AuthContext);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const navigate = useNavigate();
+  const dropdownRef = useRef(null); // ⬅️ Create a ref
+
+  // ⬇️ Handle clicks outside the dropdown
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   const handleLogout = async () => {
     const result = await Swal.fire({
@@ -43,41 +58,93 @@ const NavBar = () => {
           Home
         </NavLink>
       </li>
-      <li>
-        <NavLink className="text-black mr-4" to="/findJob">
-          <RiFindReplaceLine />
-          Find a Job
-        </NavLink>
+
+      <li className="relative" ref={dropdownRef}>
+        <button
+          onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+          className="flex items-center gap-1 text-black mr-4"
+        >
+          <IoBookOutline />
+          Explore
+          <svg
+            className={`w-4 h-4 ml-1 transition-transform transform ${
+              isDropdownOpen ? "rotate-180" : ""
+            }`}
+            fill="currentColor"
+            viewBox="0 0 20 20"
+          >
+            <path
+              fillRule="evenodd"
+              d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.25a.75.75 0 01-1.06 0L5.23 8.29a.75.75 0 01.02-1.08z"
+              clipRule="evenodd"
+            />
+          </svg>
+        </button>
+        {isDropdownOpen && (
+          <ul className="absolute top-full mt-2 bg-white text-black rounded shadow-lg p-2 w-40 z-10">
+            <li>
+              <NavLink
+                to="/findJob"
+                className="block px-2 py-1 hover:bg-gray-200 rounded"
+                onClick={() => setIsDropdownOpen(false)}
+              >
+                Find a Job
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/recruiters"
+                className="block px-2 py-1 hover:bg-gray-200 rounded"
+                onClick={() => setIsDropdownOpen(false)}
+              >
+                Recruiters
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/candidates"
+                className="block px-2 py-1 hover:bg-gray-200 rounded"
+                onClick={() => setIsDropdownOpen(false)}
+              >
+                Candidates
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/blog"
+                className="block px-2 py-1 hover:bg-gray-200 rounded"
+                onClick={() => setIsDropdownOpen(false)}
+              >
+                Blog
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/liveChat"
+                className="block px-2 py-1 hover:bg-gray-200 rounded"
+                onClick={() => setIsDropdownOpen(false)}
+              >
+                Live Chat
+              </NavLink>
+            </li>
+          </ul>
+        )}
       </li>
-      <li>
-        <NavLink className="text-black mr-4" to="/recruiters">
-          <TbBrandSuperhuman />
-          Recruiters
-        </NavLink>
-      </li>
-      <li>
-        <NavLink className="text-black mr-4" to="/candidates">
-          <FaUsersViewfinder />
-          Candidates
-        </NavLink>
-      </li>
-      <li>
-        <NavLink className="text-black mr-4" to="/blog">
-          <LiaBlogSolid />
-          Blog
-        </NavLink>
-      </li>
-      <li>
-        <NavLink className="text-black mr-4" to="/liveChat">
-          <LiaBlogSolid />
-          Live Chat
-        </NavLink>
-      </li>
+      {/* for applicant links. check roll as well. */}
       {user && (
         <li>
           <NavLink to="/myApplication" className="text-black">
             <SlEnvolopeLetter />
             My Application
+          </NavLink>
+        </li>
+      )}
+      {/* for recruiter links. check roll as well. */}
+      {user && (
+        <li>
+          <NavLink to="/addJob" className="text-black">
+            <MdAddTask />
+            Add Job
           </NavLink>
         </li>
       )}
@@ -139,7 +206,7 @@ const NavBar = () => {
           <>
             <Link
               to="/signIn"
-              className="text-sm md:block hidden text-white bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-800 px-3 py-1 rounded transition"
+              className="text-sm lg:block hidden text-white bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-800 px-3 py-1 rounded transition"
             >
               SignIn
             </Link>
