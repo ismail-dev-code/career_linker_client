@@ -1,13 +1,23 @@
-import React, { useContext } from "react";
+import React, { useContext, useRef, useEffect } from "react";
 import { AuthContext } from "../../context/AuthContext/AuthContext";
 
 const AddJob = () => {
   const { user } = useContext(AuthContext);
+  const titleInputRef = useRef(null);
+
+  useEffect(() => {
+    titleInputRef.current?.focus();
+  }, []);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
-    
+    // Handle form submission logic here
   };
+
+  const inputClass =
+    "w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 text-gray-800 dark:text-white bg-white dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500";
+
   return (
     <div className="max-w-3xl mx-auto px-4 py-8">
       <div className="bg-white dark:bg-gray-800 shadow-xl rounded-2xl p-6 md:p-10">
@@ -22,19 +32,20 @@ const AddJob = () => {
             type="text"
             name="title"
             placeholder="Job Title (e.g., Software Engineer)"
-            className="input-field"
+            className={inputClass}
             required
+            ref={titleInputRef}
           />
 
           <input
             type="text"
             name="location"
             placeholder="Location (e.g., Halishohor, Chittagong)"
-            className="input-field"
+            className={inputClass}
             required
           />
 
-          <select name="jobType" className="input-field" required>
+          <select name="jobType" className={inputClass} required>
             <option value="">Select Job Type</option>
             <option value="On-site">On-site</option>
             <option value="Remote">Remote</option>
@@ -45,14 +56,14 @@ const AddJob = () => {
             type="text"
             name="category"
             placeholder="Category (e.g., Engineering)"
-            className="input-field"
+            className={inputClass}
             required
           />
 
           <input
             type="date"
             name="applicationDeadline"
-            className="input-field"
+            className={inputClass}
             required
           />
 
@@ -60,7 +71,7 @@ const AddJob = () => {
             type="number"
             name="salaryMin"
             placeholder="Minimum Salary (e.g., 40000)"
-            className="input-field"
+            className={inputClass}
             required
           />
 
@@ -68,11 +79,11 @@ const AddJob = () => {
             type="number"
             name="salaryMax"
             placeholder="Maximum Salary (e.g., 60000)"
-            className="input-field"
+            className={inputClass}
             required
           />
 
-          <select name="currency" className="input-field" required>
+          <select name="currency" className={inputClass} required>
             <option value="">Currency</option>
             <option value="bdt">BDT</option>
             <option value="usd">USD</option>
@@ -83,7 +94,7 @@ const AddJob = () => {
             type="text"
             name="company"
             placeholder="Company Name (e.g., Favorite IT)"
-            className="input-field col-span-1 md:col-span-2"
+            className={`${inputClass} col-span-1 md:col-span-2`}
             required
           />
 
@@ -91,7 +102,7 @@ const AddJob = () => {
             name="description"
             placeholder="Job Description"
             rows={4}
-            className="input-field col-span-1 md:col-span-2"
+            className={`${inputClass} col-span-1 md:col-span-2`}
             required
           ></textarea>
 
@@ -99,7 +110,7 @@ const AddJob = () => {
             type="text"
             name="requirements"
             placeholder="Requirements (comma-separated, e.g., JavaScript, React)"
-            className="input-field col-span-1 md:col-span-2"
+            className={`${inputClass} col-span-1 md:col-span-2`}
             required
           />
 
@@ -107,7 +118,7 @@ const AddJob = () => {
             type="text"
             value={user?.displayName || ""}
             readOnly
-            className="input-field bg-gray-100 dark:bg-gray-700 cursor-not-allowed"
+            className={`${inputClass} bg-gray-100 dark:bg-gray-700 cursor-not-allowed`}
             placeholder="User Name"
           />
 
@@ -115,7 +126,7 @@ const AddJob = () => {
             type="email"
             value={user?.email || ""}
             readOnly
-            className="input-field bg-gray-100 dark:bg-gray-700 cursor-not-allowed"
+            className={`${inputClass} bg-gray-100 dark:bg-gray-700 cursor-not-allowed`}
             placeholder="User Email"
           />
 
