@@ -94,8 +94,8 @@ const Register = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 2 }}
         >
-          <h1 className="text-3xl md:text-4xl font-bold mb-6 text-center">
-            Register Now
+          <h1 className="text-2xl font-bold mb-3 text-center">
+            Create an Account
           </h1>
           <form onSubmit={handleRegister} className="space-y-4">
             <div>
@@ -159,7 +159,10 @@ const Register = () => {
             </div>
 
             <div className="mt-6">
-              <button type="submit" className="btn btn-neutral w-full">
+              <button
+                type="submit"
+                className="w-full text-white text-sm bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700 px-4 py-2 rounded transition cursor-pointer"
+              >
                 Register
               </button>
             </div>

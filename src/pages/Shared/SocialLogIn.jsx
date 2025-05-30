@@ -32,11 +32,12 @@ const SocialLogIn = ({ form }) => {
       {/* Google Sign In */}
       <div className="mt-4">
         <button
-          onClick={handleGoogleSignIn}
-          className="btn btn-outline btn-accent w-full"
-        >
-         <FcGoogle size={25} /> Sign in with Google
-        </button>
+  onClick={handleGoogleSignIn}
+  className="w-full flex items-center justify-center gap-2 bg-white text-gray-800 border border-gray-300 hover:bg-gray-100 px-4 py-2 rounded transition cursor-pointer text-sm"
+>
+  <FcGoogle size={20} /> Sign in with Google
+</button>
+
       </div>
     </div>
   );
