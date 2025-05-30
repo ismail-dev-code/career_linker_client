@@ -5,6 +5,8 @@ const AddJob = () => {
   const { user } = useContext(AuthContext);
   const handleSubmit = (e) => {
     e.preventDefault();
+    const form = e.target;
+    
   };
   return (
     <div className="max-w-3xl mx-auto px-4 py-8">
