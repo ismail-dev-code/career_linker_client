@@ -14,6 +14,7 @@ import Recruiters from "../components/Recruiters";
 import Blog from "../components/Blog";
 import LiveChat from "../components/LiveChat";
 import AddJob from "../pages/addJob/AddJob";
+import MyPostedJobs from "../pages/myPostedJob/MyPostedJobs";
 
 const router = createBrowserRouter([
   {
@@ -52,6 +53,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <AddJob />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/myPostedJobs",
+        element: (
+          <PrivateRoute>
+            <MyPostedJobs />
           </PrivateRoute>
         ),
       },

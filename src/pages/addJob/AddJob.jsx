@@ -21,7 +21,7 @@ const AddJob = () => {
     jobData.responsibilities = data.responsibilities.split(',').map((res) => res.trim());
 
     jobData.status = 'active';
-
+// data create hobar por backend e eta diye patay
     axios
       .post('http://localhost:3000/jobs', jobData)
       .then((res) => {
@@ -115,7 +115,7 @@ const AddJob = () => {
         {/* HR Info */}
         <fieldset className="bg-base-200 border rounded-xl p-6 space-y-4">
           <legend className="text-lg font-semibold mb-2">HR Information</legend>
-          <input type="text" name="hr_name" placeholder="HR Name" className="input w-full" required />
+          <input type="text" name="hr_name" defaultValue={user?.name} placeholder="HR Name" className="input w-full" required />
           <input type="email" name="hr_email" defaultValue={user?.email} placeholder="HR Email" className="input w-full" readOnly />
         </fieldset>
 

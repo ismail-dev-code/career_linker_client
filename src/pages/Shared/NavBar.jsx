@@ -141,12 +141,20 @@ const NavBar = () => {
       )}
       {/* for recruiter links. check roll as well. */}
       {user && (
-        <li>
-          <NavLink to="/addJob" className="text-black">
-            <MdAddTask />
-            Add Job
-          </NavLink>
-        </li>
+        <>
+          <li>
+            <NavLink to="/addJob" className="text-black">
+              <MdAddTask />
+              Add Job
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/myPostedJobs" className="text-black">
+              <MdAddTask />
+              My Posted Jobs
+            </NavLink>
+          </li>
+        </>
       )}
     </>
   );
