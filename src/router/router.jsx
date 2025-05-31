@@ -15,6 +15,7 @@ import Blog from "../components/Blog";
 import LiveChat from "../components/LiveChat";
 import AddJob from "../pages/addJob/AddJob";
 import MyPostedJobs from "../pages/myPostedJob/MyPostedJobs";
+import ViewApplications from "../pages/viewApplications/ViewApplications";
 
 const router = createBrowserRouter([
   {
@@ -63,6 +64,17 @@ const router = createBrowserRouter([
             <MyPostedJobs />
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/applications/:job_id",
+        element: (
+          <PrivateRoute>
+            <ViewApplications></ViewApplications>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/applications/job/${params.job_id}`),
+        hydrateFallbackElement: <Loading />,
       },
       {
         path: "/register",
