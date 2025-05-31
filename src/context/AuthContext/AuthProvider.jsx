@@ -10,6 +10,8 @@ import {
   signOut,
 } from "firebase/auth";
 import { auth } from "../../firebase/firebase.config";
+import axios from "axios";
+import Swal from "sweetalert2";
 const provider = new GoogleAuthProvider();
 const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
@@ -39,8 +41,40 @@ const AuthProvider = ({ children }) => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       setLoading(false);
+
+      if (currentUser?.email) {
+        axios
+          .post(
+            "http://localhost:3000/jwt",
+            { email: currentUser.email },
+            { withCredentials: true }
+          )
+          .then((res) => {
+            console.log(res.data);
+            Swal.fire({
+              icon: "success",
+              title: "Login Success",
+              text: "JWT cookie set successfully.",
+              timer: 2000,
+              showConfirmButton: false,
+            });
+          })
+          .catch((error) => {
+            console.error(error);
+            Swal.fire({
+              icon: "error",
+              title: "JWT Error",
+              text: "Could not set JWT cookie.",
+            });
+          });
+      }
+
+      console.log("user in the auth state change", currentUser);
     });
-    return () => unSubscribe();
+
+    return () => {
+      unSubscribe();
+    };
   }, []);
   const authInfo = {
     createUser,

@@ -12,7 +12,7 @@ import FindJob from "../components/FindJob";
 import Candidates from "../components/Candidates";
 import Recruiters from "../components/Recruiters";
 import Blog from "../components/Blog";
-import LiveChat from "../components/LiveChat";
+// import LiveChat from "../components/LiveChat";
 import AddJob from "../pages/addJob/AddJob";
 import MyPostedJobs from "../pages/myPostedJob/MyPostedJobs";
 import ViewApplications from "../pages/viewApplications/ViewApplications";
@@ -100,14 +100,14 @@ const router = createBrowserRouter([
         path: "/blog",
         element: <Blog />,
       },
-      {
-        path: "/liveChat",
-        element: (
-          <PrivateRoute>
-            <LiveChat />
-          </PrivateRoute>
-        ),
-      },
+      // {
+      //   path: "/liveChat",
+      //   element: (
+      //     <PrivateRoute>
+      //       <LiveChat />
+      //     </PrivateRoute>
+      //   ),
+      // },
     ],
   },
 ]);
