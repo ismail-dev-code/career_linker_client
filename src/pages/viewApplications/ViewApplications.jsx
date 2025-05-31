@@ -6,7 +6,7 @@ import Swal from 'sweetalert2';
 const ViewApplications = () => {
   const { job_id } = useParams();
   const initialApplications = useLoaderData();
-  const [applications, setApplications] = useState(initialApplications); // track updated state
+  const [applications, setApplications] = useState(initialApplications);
 
   const handleStatusChange = (e, app_id) => {
     axios
@@ -42,7 +42,6 @@ const ViewApplications = () => {
           .delete(`http://localhost:3000/applications/${app_id}`)
           .then((res) => {
             if (res.data.deletedCount) {
-              // Remove from UI
               setApplications((prev) =>
                 prev.filter((app) => app._id !== app_id)
               );
@@ -58,33 +57,33 @@ const ViewApplications = () => {
   };
 
   return (
-    <div>
-      <h2 className="text-4xl">
-        {applications.length} Applications for: {job_id}
+    <div className='my-20 px-4 md:px-10'>
+      <h2 className="text-lg md:text-2xl font-bold pb-8 text-center">
+        {applications.length} Applications for job ID: {job_id}
       </h2>
 
       <div className="overflow-x-auto">
-        <table className="table">
+        <table className="table w-full text-sm md:text-base">
           <thead>
-            <tr>
+            <tr className="bg-gray-100">
               <th>#</th>
               <th>Name</th>
               <th>Job</th>
               <th>Status</th>
-              <th>Action</th> {/* New column */}
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
             {applications.map((application, index) => (
               <tr key={application._id}>
-                <th>{index + 1}</th>
+                <td>{index + 1}</td>
                 <td>{application.applicant}</td>
                 <td>Quality Control Specialist</td>
                 <td>
                   <select
                     onChange={(e) => handleStatusChange(e, application._id)}
                     defaultValue={application.status}
-                    className="select"
+                    className="select select-sm md:select-md w-full max-w-xs"
                   >
                     <option disabled>Update Status</option>
                     <option>Pending</option>
@@ -96,7 +95,7 @@ const ViewApplications = () => {
                 <td>
                   <button
                     onClick={() => handleDelete(application._id)}
-                    className="bg-red-600 text-white px-3 py-1 rounded hover:bg-red-700"
+                    className="bg-red-600 text-white px-2 py-1 md:px-3 md:py-1.5 rounded hover:bg-red-700 text-xs md:text-sm"
                   >
                     Delete
                   </button>

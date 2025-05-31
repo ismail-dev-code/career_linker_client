@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useRef, useState } from "react"; // added
 import { Link, NavLink, useNavigate } from "react-router";
 import { AuthContext } from "../../context/AuthContext/AuthContext";
 import Swal from "sweetalert2";
-import { IoBagAddOutline, IoBookOutline, IoHomeOutline } from "react-icons/io5";
+import { IoBookOutline, IoHomeOutline } from "react-icons/io5";
 import { RiFindReplaceLine } from "react-icons/ri";
 import { FaUsersViewfinder } from "react-icons/fa6";
 import { LiaBlogSolid } from "react-icons/lia";
@@ -14,9 +14,9 @@ const NavBar = () => {
   const { user, logOut } = useContext(AuthContext);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const navigate = useNavigate();
-  const dropdownRef = useRef(null); // ⬅️ Create a ref
+  const dropdownRef = useRef(null); 
 
-  // ⬇️ Handle clicks outside the dropdown
+
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -118,7 +118,7 @@ const NavBar = () => {
                 Blog
               </NavLink>
             </li>
-            <li>
+            {/* <li>
               <NavLink
                 to="/liveChat"
                 className="block px-2 py-1 hover:bg-gray-200 rounded"
@@ -126,7 +126,7 @@ const NavBar = () => {
               >
                 Live Chat
               </NavLink>
-            </li>
+            </li> */}
           </ul>
         )}
       </li>
@@ -206,7 +206,7 @@ const NavBar = () => {
         {user ? (
           <button
             onClick={handleLogout}
-            className="text-sm text-white bg-gradient-to-r from-red-500 to-red-700 hover:from-red-600 hover:to-red-800 px-3 py-1 rounded transition"
+            className="text-sm text-white bg-gradient-to-r from-red-500 to-red-700 hover:from-red-600 hover:to-red-800 px-3 py-1 rounded transition cursor-pointer"
           >
             Sign Out
           </button>
