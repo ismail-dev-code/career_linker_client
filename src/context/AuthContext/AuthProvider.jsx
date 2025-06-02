@@ -69,7 +69,7 @@ const AuthProvider = ({ children }) => {
           });
       }
 
-      console.log("user in the auth state change", currentUser);
+      // console.log("user in the auth state change", currentUser);
     });
 
     return () => {

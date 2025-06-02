@@ -32,9 +32,9 @@ const HotJobs = () => {
 
   if (loading) {
     return (
-      <p className="text-center mt-10">
+      <div className="text-center mt-10">
         <Loading />
-      </p>
+      </div>
     );
   }
 

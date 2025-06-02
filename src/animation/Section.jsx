@@ -26,18 +26,30 @@ const Section = () => {
     },
     {
       id: 3,
+      title: "Build Your Career",
+      desc: "Connect with top companies.",
+      img: slider2,
+    },
+    {
+      id: 4,
+      title: "Build Your Career",
+      desc: "Connect with top companies.",
+      img: slider2,
+    },
+    {
+      id: 5,
       title: "Get Hired Faster",
       desc: "Stand out with our smart tools.",
       img: slider3,
     },
     {
-      id: 4,
+      id: 6,
       title: "Explore New Horizons",
       desc: "Discover exciting job markets.",
       img: slider4,
     },
     {
-      id: 5,
+      id: 7,
       title: "Achieve Your Goals",
       desc: "Step into a brighter future.",
       img: slider5,
