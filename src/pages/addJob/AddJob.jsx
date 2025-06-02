@@ -23,7 +23,7 @@ const AddJob = () => {
     jobData.status = 'active';
 // data create hobar por backend e eta diye patay
     axios
-      .post('http://localhost:3000/jobs', jobData)
+      .post('https://career-linker-server.vercel.app/jobs', jobData)
       .then((res) => {
         if (res.data.insertedId) {
           Swal.fire({

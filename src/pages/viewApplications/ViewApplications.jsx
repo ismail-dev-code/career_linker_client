@@ -10,7 +10,7 @@ const ViewApplications = () => {
 
   const handleStatusChange = (e, app_id) => {
     axios
-      .patch(`http://localhost:3000/applications/${app_id}`, {
+      .patch(`https://career-linker-server.vercel.app/applications/${app_id}`, {
         status: e.target.value,
       })
       .then((res) => {
@@ -39,7 +39,7 @@ const ViewApplications = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`http://localhost:3000/applications/${app_id}`)
+          .delete(`https://career-linker-server.vercel.app/applications/${app_id}`)
           .then((res) => {
             if (res.data.deletedCount) {
               setApplications((prev) =>
