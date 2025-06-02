@@ -3,7 +3,7 @@
 // import { io } from "socket.io-client";
 // import Swal from "sweetalert2";
 
-// const socket = io("http://localhost:3000");
+// const socket = io("https://career-linker-server.vercel.app");
 
 // const LiveChat = () => {
 //   const [messages, setMessages] = useState([]);

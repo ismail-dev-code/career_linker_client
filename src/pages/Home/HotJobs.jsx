@@ -9,7 +9,7 @@ const HotJobs = () => {
   const [showAll, setShowAll] = useState(false); 
 
   useEffect(() => {
-    fetch("http://localhost:3000/jobs")
+    fetch("https://career-linker-server.vercel.app/jobs")
       .then((res) => res.json())
       .then((data) => {
         setJobs(data);

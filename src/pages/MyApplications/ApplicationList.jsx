@@ -20,7 +20,7 @@ const ApplicationList = ({ myApplicationsPromise }) => {
     if (!result.isConfirmed) return;
 
     try {
-      const res = await fetch(`http://localhost:3000/applications/${id}`, {
+      const res = await fetch(`https://career-linker-server.vercel.app/applications/${id}`, {
         method: "DELETE",
       });
       const data = await res.json();
