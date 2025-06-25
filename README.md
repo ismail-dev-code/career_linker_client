@@ -50,6 +50,6 @@ A modern, responsive job-matching web application built with React, Tailwind CSS
 ## 📦 Installation
 
 ```bash
-git clone https://github.com/your-username/careerlinker.git
+git clone https://github.com/ismail-dev-code/career_linker_client.git
 cd careerlinker
 npm install
